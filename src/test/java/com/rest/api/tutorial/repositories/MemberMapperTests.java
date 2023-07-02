@@ -30,15 +30,15 @@ class MemberMapperTests extends PostgresTestContainerInitializer {
         .of(new MemberResponse(TEST_DATA_ID_1, "hogeta", "hogeo"),
             new MemberResponse(TEST_DATA_ID_2, "fugata", "piyoko"));
     List<MemberResponse> actualResposes = memberMapper.fetchMembers();
-    assertEquals(actualResposes, expectedResponses);
+    assertEquals(expectedResponses, actualResposes);
 
   }
 
   @Test
   void findByIdTest() {
     MemberResponse actualResponse = memberMapper.findById(TEST_DATA_ID_1);
-    assertEquals(actualResponse.getId(), TEST_DATA_ID_1);
-    assertEquals(actualResponse.getFirstName(), "hogeta");
-    assertEquals(actualResponse.getLastName(), "hogeo");
+    assertEquals(TEST_DATA_ID_1, actualResponse.getId());
+    assertEquals("hogeta", actualResponse.getFirstName());
+    assertEquals("hogeo", actualResponse.getLastName());
   }
 }
