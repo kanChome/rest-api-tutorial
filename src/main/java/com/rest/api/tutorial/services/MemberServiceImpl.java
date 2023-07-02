@@ -9,19 +9,16 @@ import com.rest.api.tutorial.domains.MemberResponse;
 import com.rest.api.tutorial.repositories.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
-public class MemberServiceImpl implements MemberService {
+class MemberServiceImpl implements MemberService {
 
   private final MemberRepository memberRepository;
 
   @Override
   @Transactional(readOnly = true)
   public List<MemberResponse> fetchMembers() {
-    log.debug("test");
     return memberRepository.fetchMembers();
   }
 
