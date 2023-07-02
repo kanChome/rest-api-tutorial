@@ -1,14 +1,14 @@
 package com.rest.api.tutorial.domains;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.lang.NonNull;
 
-@Getter
-@Setter
-@Builder
+@Data
+@AllArgsConstructor
 public class MemberRequest {
-  private String id;
+  @NonNull
   private String firstName;
+  @NonNull
   private String lastName;
 }

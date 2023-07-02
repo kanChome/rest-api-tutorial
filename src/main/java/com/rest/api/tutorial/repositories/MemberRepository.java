@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.rest.api.tutorial.domains.MemberRequest;
 import com.rest.api.tutorial.domains.MemberResponse;
 
 import lombok.RequiredArgsConstructor;
@@ -20,5 +21,9 @@ public class MemberRepository {
 
   public MemberResponse findMemberById(int id) {
     return memberMapper.findById(id);
+  }
+
+  public void registerMember(MemberRequest member) {
+    memberMapper.insertMember(member);
   }
 }

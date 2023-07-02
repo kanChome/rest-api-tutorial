@@ -2,10 +2,12 @@ package com.rest.api.tutorial.repositories;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import com.rest.api.tutorial.domains.MemberRequest;
 import com.rest.api.tutorial.domains.MemberResponse;
 
 @Mapper
@@ -16,4 +18,12 @@ interface MemberMapper {
 
   @Select("SELECT id, first_name, last_name FROM member WHERE id = #{id}")
   MemberResponse findById(@Param("id") int id);
+
+  @Insert("INSERT INTO public.member(first_name, last_name)"
+      + " VALUES ("
+      + "  #{member.firstName},"
+      + "  #{member.lastName}"
+      + " )")
+  void insertMember(@Param("member") MemberRequest member);
+
 }
