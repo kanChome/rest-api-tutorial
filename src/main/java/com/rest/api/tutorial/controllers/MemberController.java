@@ -66,7 +66,8 @@ public class MemberController {
    * ユーザー削除
    */
   @DeleteMapping("/{memberId}")
-  public void deleteMember() {
-
+  @ResponseStatus(HttpStatus.OK)
+  public void deleteMember(@PathVariable int memberId) {
+    memberService.deleteMember(memberId);
   }
 }
