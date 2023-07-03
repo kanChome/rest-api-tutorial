@@ -2,6 +2,7 @@ package com.rest.api.tutorial.repositories;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -26,4 +27,6 @@ interface MemberMapper {
       + " )")
   void insertMember(@Param("member") MemberRequest member);
 
+  @Delete("DELETE FROM public.member WHERE id = #{id}")
+  void deleteMember(@Param("id") int id);
 }

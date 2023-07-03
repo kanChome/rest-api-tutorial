@@ -30,8 +30,14 @@ class MemberServiceImpl implements MemberService {
   }
 
   @Override
+  @Transactional
   public void registerMember(MemberRequest member) {
     memberRepository.registerMember(member);
   }
 
+  @Override
+  @Transactional
+  public void deleteMember(int id) {
+    memberRepository.deleteMember(id);
+  }
 }

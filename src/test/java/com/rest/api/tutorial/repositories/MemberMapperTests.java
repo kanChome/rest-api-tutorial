@@ -49,6 +49,11 @@ class MemberMapperTests extends PostgresTestContainerInitializer {
     memberMapper.insertMember(new MemberRequest("bar", "foo"));
     MemberResponse expected = new MemberResponse(3, "bar", "foo");
     assertEquals(expected, memberMapper.findById(TEST_DATA_ID_3));
+  }
 
+  @Test
+  void deleteTest() {
+    memberMapper.deleteMember(TEST_DATA_ID_3);
+    assertEquals(null, memberMapper.findById(TEST_DATA_ID_3));
   }
 }
