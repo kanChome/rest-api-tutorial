@@ -26,4 +26,8 @@ public class MemberRepository {
   public void registerMember(MemberRequest member) {
     memberMapper.insertMember(member);
   }
+
+  public void deleteMember(int id) {
+    memberMapper.deleteMember(id);
+  }
 }
