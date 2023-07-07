@@ -30,4 +30,8 @@ public class MemberRepository {
   public void deleteMember(int id) {
     memberMapper.deleteMember(id);
   }
+
+  public void updateMember(int id, MemberRequest member) {
+    memberMapper.updateMember(id, member);
+  }
 }
