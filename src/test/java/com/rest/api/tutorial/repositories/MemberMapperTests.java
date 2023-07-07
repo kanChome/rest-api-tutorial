@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import org.apache.ibatis.javassist.compiler.ast.Member;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -49,6 +50,14 @@ class MemberMapperTests extends PostgresTestContainerInitializer {
     memberMapper.insertMember(new MemberRequest("bar", "foo"));
     MemberResponse expected = new MemberResponse(3, "bar", "foo");
     assertEquals(expected, memberMapper.findById(TEST_DATA_ID_3));
+  }
+
+  @Test
+  void updateTest() {
+    memberMapper.updateMember(TEST_DATA_ID_2, new MemberRequest("piyopiyo", "fugafuga"));
+    MemberResponse actual = memberMapper.findById(TEST_DATA_ID_2);
+    assertEquals("piyopiyo", actual.getFirstName());
+    assertEquals("fugafuga", actual.getLastName());
   }
 
   @Test
