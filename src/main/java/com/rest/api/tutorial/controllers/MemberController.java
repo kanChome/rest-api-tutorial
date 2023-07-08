@@ -58,8 +58,9 @@ public class MemberController {
    * ユーザー更新
    */
   @PutMapping("/{memberId}")
-  public void updateMember() {
-
+  @ResponseStatus(HttpStatus.OK)
+  public void updateMember(@PathVariable int memberId, @RequestBody MemberRequest request) {
+    memberService.updateMember(memberId, request);
   }
 
   /**

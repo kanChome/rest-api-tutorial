@@ -12,5 +12,7 @@ public interface MemberService {
 
   public void registerMember(MemberRequest member);
 
+  public void updateMember(int id, MemberRequest memberRequest);
+
   public void deleteMember(int id);
 }

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.rest.api.tutorial.domains.MemberRequest;
 import com.rest.api.tutorial.domains.MemberResponse;
@@ -26,6 +27,14 @@ interface MemberMapper {
       + "  #{member.lastName}"
       + " )")
   void insertMember(@Param("member") MemberRequest member);
+
+  @Update("UPDATE public.member "
+      + "SET "
+      + "  first_name = #{member.firstName}, "
+      + "  last_name = #{member.lastName} "
+      + "WHERE "
+      + "  id = #{id}")
+  void updateMember(@Param("id") int id, @Param("member") MemberRequest member);
 
   @Delete("DELETE FROM public.member WHERE id = #{id}")
   void deleteMember(@Param("id") int id);
