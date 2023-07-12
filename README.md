@@ -10,4 +10,7 @@
 
 # app停止
 ./scripts/stop-app.sh
+
+# SwaggerUI, SwaggerEditor起動
+docker-compose -f docker-compose.openapi.yml up
 ```

@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  swagger_editor:
+    image: swaggerapi/swagger-editor
+    container_name: 'swagger-api'
+    ports:
+      - "8887:8080"
+
+  swagger-ui:
+    image: swaggerapi/swagger-ui:v5.1.0
+    container_name: 'swagger-ui'
+    ports:
+      - "8888:8080"
+    volumes:
+      - "./docs:/usr/share/nginx/html/docs"
+    environment:
+      - URL=./docs/openapi.yml
