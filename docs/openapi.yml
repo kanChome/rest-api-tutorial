@@ -19,7 +19,7 @@ paths:
         '200':
           description: 成功時
           content:
-            application:json:
+            application/json:
               schema:
                 type: array
                 items:
@@ -31,3 +31,36 @@ paths:
                       type: string
                     lastName:
                       type: string
+              examples:
+                test:
+                  value: '[{id: 1, firstName: "hoge", lastName: "piyo"}]'
+  /v1/members/{memberId}:
+    get:
+      tags:
+        - member
+      operationId: findMember
+      description: 指定されたmemberIdの情報を取得します
+      parameters:
+        - name: memberId
+          in: path
+          description: 取得したいmemberId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 成功時
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  firstName:
+                    type: string
+                  lastName:
+                    type: string
+        '404':
+          description: 指定されたmemberIdに紐づいた情報が存在しませんでした
+
