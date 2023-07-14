@@ -15,3 +15,9 @@ services:
       - "./docs:/usr/share/nginx/html/docs"
     environment:
       - URL=./docs/openapi.yml
+
+  swagger-merger:
+    build: ./docker/swagger/swagger-merger/
+    command: watch 'swagger-merger -i /docs/index.yml -o /docs/openapi.yml' /docs/
+    volumes:
+      - "./docs:/docs"

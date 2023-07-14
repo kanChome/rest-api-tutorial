@@ -1,0 +1,20 @@
+openapi: 3.0.3
+info:
+  title: rest-api-tutorial
+  version: 0.0.1
+  description: rest-api-tutorial
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: member
+    description: 会員情報
+paths:
+  /v1/members:
+    $ref: "./paths/featchMembers.yml"
+  /v1/members/{memberId}:
+    $ref: "./paths/findMember.yml"
+
+components:
+  schemas:
+    member:
+      $ref: "./schemas/member.yml"

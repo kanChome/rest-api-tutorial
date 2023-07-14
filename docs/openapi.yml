@@ -24,16 +24,17 @@ paths:
                 type: array
                 items:
                   type: object
+                  description: 会員
                   properties:
                     id:
                       type: integer
+                      example: 1
                     firstName:
                       type: string
+                      example: hoge
                     lastName:
                       type: string
-              examples:
-                test:
-                  value: '[{id: 1, firstName: "hoge", lastName: "piyo"}]'
+                      example: fuga
   /v1/members/{memberId}:
     get:
       tags:
@@ -54,13 +55,31 @@ paths:
             application/json:
               schema:
                 type: object
+                description: 会員
                 properties:
                   id:
                     type: integer
+                    example: 1
                   firstName:
                     type: string
+                    example: hoge
                   lastName:
                     type: string
+                    example: fuga
         '404':
           description: 指定されたmemberIdに紐づいた情報が存在しませんでした
-
+components:
+  schemas:
+    member:
+      type: object
+      description: 会員
+      properties:
+        id:
+          type: integer
+          example: 1
+        firstName:
+          type: string
+          example: hoge
+        lastName:
+          type: string
+          example: fuga

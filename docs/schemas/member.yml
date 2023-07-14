@@ -1,0 +1,12 @@
+type: object
+description: 会員
+properties:
+  id:
+    type: integer
+    example: 1
+  firstName:
+    type: string
+    example: "hoge"
+  lastName:
+    type: string
+    example: "fuga"
